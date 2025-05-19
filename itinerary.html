@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Itinerary</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Travel</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="itinerary.html" class="active">Itinerary</a>
+      <a href="search.html">Search & Book</a>
+      <a href="services.html">Services</a>
+      <a href="budget.html">Budget</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main class="itinerary-container">
+    <h1>Create Your Itinerary</h1>
+
+    <!-- Trip Details Form -->
+    <form id="trip-details-form" class="trip-details-form">
+      <label for="trip-name">Trip Name</label>
+      <input type="text" id="trip-name" placeholder="Enter Trip Name" required>
+
+      <label for="destination">Destination</label>
+      <input type="text" id="destination" placeholder="Enter Destination" required>
+
+      <label for="start-date">Start Date</label>
+      <input type="date" id="start-date" required>
+
+      <label for="end-date">End Date</label>
+      <input type="date" id="end-date" required>
+
+      <button type="submit">Save Itinerary</button>
+    </form>
+
+    <hr style="margin: 30px 0;">
+
+    <!-- Day-by-Day Activity Form -->
+    <h2>Add Daily Activities</h2>
+    <form id="itinerary-form" class="itinerary-form">
+      <input type="date" id="itinerary-date" required />
+      <input type="text" id="activity" placeholder="Add activity (e.g., City tour)" required />
+      <button type="submit">Add</button>
+    </form>
+
+    <ul id="itinerary-list" class="itinerary-list">
+      <!-- Itinerary items will appear here -->
+    </ul>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Travel Planner. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Save trip details (for now just log to console)
+    const tripForm = document.getElementById('trip-details-form');
+    tripForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const trip = {
+        name: document.getElementById('trip-name').value,
+        destination: document.getElementById('destination').value,
+        start: document.getElementById('start-date').value,
+        end: document.getElementById('end-date').value
+      };
+      alert("Trip Saved: " + trip.name + " to " + trip.destination);
+      tripForm.reset();
+    });
+
+    // Add activities
+    const itineraryForm = document.getElementById('itinerary-form');
+    const itineraryList = document.getElementById('itinerary-list');
+
+    itineraryForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const date = document.getElementById('itinerary-date').value;
+      const activity = document.getElementById('activity').value;
+
+      const listItem = document.createElement('li');
+      listItem.innerHTML = `<strong>${date}</strong>: ${activity} <button class="delete-btn">Delete</button>`;
+      itineraryList.appendChild(listItem);
+
+      itineraryForm.reset();
+    });
+
+    itineraryList.addEventListener('click', function(e) {
+      if (e.target.classList.contains('delete-btn')) {
+        e.target.parentElement.remove();
+      }
+    });
+  </script>
+</body>
+</html>

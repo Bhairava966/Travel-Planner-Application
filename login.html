@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Travel Planner</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('login.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header, footer {
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      width: 100%;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+
+    .login-form label {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .login-form input {
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+    }
+
+    .forgot-password {
+      align-self: flex-end;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      color: #0077b6;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .forgot-password:hover {
+      color: #ff6f00;
+      text-decoration: underline;
+    }
+
+    .login-form button {
+      padding: 12px;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .login-form button:hover {
+      background-color: #ff6f00;
+    }
+
+    .create-account {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .create-account a {
+      color: #0077b6;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .create-account a:hover {
+      color: #ff6f00;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Login</h1>
+    <nav>
+      <a href="index.html">Back</a>
+    </nav>
+  </header>
+
+  <main>
+    <form action="login-process.php" method="post" class="login-form">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <a href="forgot-password.html" class="forgot-password">Forgot Password?</a>
+
+      <button type="submit">Login</button>
+
+      <div class="create-account">
+        <p>Don't have an account? <a href="register.html">Create your account</a></p>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Travel Planner. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
